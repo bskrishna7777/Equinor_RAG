@@ -45,7 +45,7 @@ def run_multimodal_agent(query, index, chunks, top_k=3):
             "image_path": c.get("image_path")
         })
 
-    prompt = f"""You are a technical assistant analyzing a document containing text and figures. Use the content below to answer the question.
+    prompt = f"""You are a technical assistant analyzing a document containing text, tables and figures. Use the content below to answer the question.
 
                 {context}
                 

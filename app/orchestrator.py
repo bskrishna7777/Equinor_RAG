@@ -10,7 +10,7 @@ from app.embedder import get_embeddings
 from app.agent_multimodal import run_multimodal_agent
 
 def extract_keywords_from_query(query):
-    prompt = f"""Extract 3–5 most relevant keywords or phrases from the following user question that can be used to search a document:
+    prompt = f"""Extract 3–6 most relevant keywords or phrases from the following user question that can be used to search a document:
 
             Question: "{query}"
             
@@ -21,6 +21,7 @@ def extract_keywords_from_query(query):
     load_dotenv()
     
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt}],
